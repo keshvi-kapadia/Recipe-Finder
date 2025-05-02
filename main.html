@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder App</title>
+    <script src="script.js"></script>
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="text-center font-mono bg-teal-600 text-white p-4 text-xl">
+        Recipe Finder
+    </h1>
+    <div class="bg-teal-100 min-h-screen justify-center">
+        <div id="recipe-search-bar">
+            <form onsubmit="getRecipe()">
+                <input type="text" placeholder="Search for recipes..." id="search" onkeypress="checkEnter(event)"
+                    class="tracking-wider text-sm font-sans h-6 text-teal-800 m-4 rounded-xl border-2 border-teal-500 w-3/6 pl-2 md:pl-4 lg:pl-6 focus:outline-none focus:border-teal-700 focus:ring-4 focus:ring-teal-300"
+                    required>
+
+                <input type="submit" value="Get Recipes"
+                    class="bg-blue-800 hover:bg-blue-900 text-white rounded h-6 w-1/6">
+            </form>
+        </div>
+
+        <div id="recipe-container">
+
+        </div>
+
+        <div id="modal" class="hidden">
+            <div class="bg-white rounded-2xl shadow-lg max-w-3xl mx-auto p-6 relative mt-10">
+                <!-- Close Button -->
+                <button onclick="closeModal()"
+                    class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl">&larr;</button>
+
+                <!-- Title -->
+                <h2 id="modal-title" class="text-teal-700 text-2xl font-bold mb-4 text-center">Recipe Name</h2>
+
+                <!-- Modal Description -->
+                <div id="modal-description" class="text-gray-700">
+                    <div class="flex items-center justify-center flex-wrap">
+                        <img id="img-dish" class="m-4 w-40 h-40 rounded-xl shadow-md" />
+                        <div id="preparation" class="m-2">
+                            <!-- Preparation text here -->
+                        </div>
+                    </div>
+
+                    <!-- Horizontal line -->
+                    <hr class="my-4 border-t border-gray-300">
+
+                    <!-- Ingredients Section -->
+                    <div id="ingredients-container" class="text-center p-4 bg-teal-50 rounded-lg shadow-outer">
+                        <h3 class="text-xl font-semibold bg-teal-400">
+                            Ingredients
+                        </h3>
+                        <div id="ingredients"></div>
+                        <hr class="border-t-2 border-teal-400 mx-auto mt-2">
+                        <!-- List of ingredients goes here -->
+                    </div>
+                    <div id="instruction-container" class="bg-teal-200 rounded shadow-outer">
+                        <h3 class="text-xl font-semibold bg-teal-400 text-center">
+                            Instructions
+                        </h3>
+                        <div id="instruction"></div>
+                        <hr class="border-t-2 border-teal-400 mx-auto mt-2">
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
