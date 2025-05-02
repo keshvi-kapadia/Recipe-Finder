@@ -40,7 +40,7 @@ async function getRecipe()
         return;
     }
     container.innerHTML="";
-    for(let i=0;i<2;i++)  //dishes.length
+    for(let i=0;i<dishes.length;i++)  //dishes.length
     {
         let main_div=document.createElement("div");
         main_div.setAttribute("class","m-2 bg-white text-teal-800 border border-black text-sm flex-col w-60 text-center")
