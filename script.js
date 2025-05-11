@@ -8,6 +8,16 @@
             getRecipe();
     }
 
+    async function generateRandomDishes() {
+        let URL=`https://api.spoonacular.com/recipes/random?number=5&apiKey=${API_KEY}`
+
+        let response=await fetch(URL);
+        let data=await response.json();
+        let dishes=data.recipes;
+        console.log(dishes)
+        generateDishes(dishes)
+    }
+
     async function getRecipe()
     {
         event.preventDefault();
