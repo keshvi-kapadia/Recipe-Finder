@@ -38,6 +38,7 @@
         
         url="https://api.spoonacular.com/recipes/complexSearch?query="+dish_val+"&apiKey="+API_KEY
         applyFilter()
+        hideFilter()
         let response=await fetch(url);
         let data=await response.json();
         let dishes=data.results;
@@ -151,17 +152,25 @@
         console.log(data.analyzedInstructions[0].steps[0].step)
     }
 
-function showFilter()
+function hideFilter()
 {
     let filter=document.getElementById("filter-container")
     
+    filter.classList.add("hidden")
+}
+
+function showFilter()
+{
+    let filter=document.getElementById("filter-container")
+
     if(filter.classList.contains("hidden"))
         filter.classList.remove("hidden")
     else filter.classList.add("hidden")
 }
 
-async function applyFilter()
+function applyFilter()
 {
+    hideFilter()
     let diet_box=document.getElementsByName("diet")
     let diet=new Array()
     for(let i=0;i<diet_box.length;i++)
@@ -223,5 +232,4 @@ async function applyFilter()
         url+="&type="+meal_val
 
     console.log(url)
-    showFilter()
 }
