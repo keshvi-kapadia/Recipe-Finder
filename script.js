@@ -149,3 +149,12 @@
         }
         console.log(data.analyzedInstructions[0].steps[0].step)
     }
+
+function showFilter()
+{
+    let filter=document.getElementById("filter-container")
+    
+    if(filter.classList.contains("hidden"))
+        filter.classList.remove("hidden")
+    else filter.classList.add("hidden")
+}

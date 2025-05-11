@@ -11,29 +11,127 @@
 </head>
 
 <!-- <body onload="generateRandomDishes()"> -->
-  <body>
+
+<body>
     <h1 class="text-center font-mono bg-teal-600 text-white p-4 text-xl">
         Recipe Finder
     </h1>
     <div class="bg-teal-100 min-h-screen justify-center">
 
         <div id="recipe-search-bar" class="flex flex-wrap items-center justify-center gap-4 p-4">
-    <form onsubmit="getRecipe()" class="flex flex-wrap items-center gap-4 w-full justify-center">
-        <!-- Search Input -->
-        <input type="text" placeholder="Search for recipes..." id="search" onkeypress="checkEnter(event)"
-            class="tracking-wider text-sm font-sans h-10 text-teal-800 rounded-3xl border-2 border-teal-500 w-full sm:w-1/2 pl-4
+            <form onsubmit="getRecipe()" class="flex flex-wrap items-center gap-4 w-full justify-center">
+                <!-- Search Input -->
+                <input type="text" placeholder="Search for recipes..." id="search" onkeypress="checkEnter(event)" class="tracking-wider text-sm font-sans h-10 text-teal-800 rounded-3xl border-2 border-teal-500 w-full sm:w-1/2 pl-4
                    focus:outline-none focus:border-teal-700 focus:ring-4 focus:ring-teal-300" required>
 
-        <!-- Filters Button -->
-        <button type="button" class="flex items-center border-2 border-black rounded-lg px-3 py-1 text-sm hover:bg-gray-100 transition">
-            <img src="filter.png" class="h-4 mr-2"> Filters
-        </button>
+                <!-- Filters Button -->
+                <button type="button"
+                    class="flex items-center border-2 border-black rounded-lg px-3 py-1 text-sm hover:bg-gray-100 transition"
+                    onclick="showFilter()">
+                    <img src="filter.png" class="h-4 mr-2"> Filters
+                </button>
 
-        <!-- Submit Button -->
-        <input type="submit" value="Get Recipes"
-            class="bg-blue-800 hover:bg-blue-900 text-white rounded px-4 py-2 text-sm transition w-fit">
-    </form>
-</div>
+                <!-- Submit Button -->
+                <input type="submit" value="Get Recipes"
+                    class="bg-blue-800 hover:bg-blue-900 text-white rounded-xl px-4 py-2 text-sm transition w-fit">
+
+
+
+                <div id="filter-container"
+                    class="border-2 border-gray-300 rounded-xl p-4 w-full md:w-3/4 lg:w-1/2 mx-auto shadow-md bg-white space-y-6 text-sm text-gray-700">
+                    <!-- Diet -->
+                    <div>
+                        <h2 class="text-lg font-semibold text-teal-700 mb-2">Diet</h2>
+                        <div class="flex flex-wrap gap-4">
+                            <div><input type="checkbox" name="diet" value="gluten free"> Gluten Free</div>
+                            <div><input type="checkbox" name="diet" value="ketogenic"> Ketogenic</div>
+                            <div><input type="checkbox" name="diet" value="vegetarian"> Vegetarian</div>
+                            <div><input type="checkbox" name="diet" value="lacto-vegetarian"> Lacto-Vegetarian</div>
+                            <div><input type="checkbox" name="diet" value="ovo-vegetarian"> Ovo-Vegetarian</div>
+                            <div><input type="checkbox" name="diet" value="vegan"> Vegan</div>
+                            <div><input type="checkbox" name="diet" value="pescetarian"> Pescetarian</div>
+                            <div><input type="checkbox" name="diet" value="paleo"> Paleo</div>
+                            <div><input type="checkbox" name="diet" value="primal"> Primal</div>
+                            <div><input type="checkbox" name="diet" value="whole30"> Whole30</div>
+                        </div>
+                    </div>
+
+                    <!-- Cuisine -->
+                    <div>
+                        <h2 class="text-lg font-semibold text-teal-700 mb-2">Cuisine</h2>
+                        <div class="flex flex-wrap gap-4">
+                            <div><input type="checkbox" name="cuisine" value="african"> African</div>
+                            <div><input type="checkbox" name="cuisine" value="american"> American</div>
+                            <div><input type="checkbox" name="cuisine" value="british"> British</div>
+                            <div><input type="checkbox" name="cuisine" value="cajun"> Cajun</div>
+                            <div><input type="checkbox" name="cuisine" value="caribbean"> Caribbean</div>
+                            <div><input type="checkbox" name="cuisine" value="chinese"> Chinese</div>
+                            <div><input type="checkbox" name="cuisine" value="eastern european"> Eastern European
+                            </div>
+                            <div><input type="checkbox" name="cuisine" value="european"> European</div>
+                            <div><input type="checkbox" name="cuisine" value="french"> French</div>
+                            <div><input type="checkbox" name="cuisine" value="german"> German</div>
+                            <div><input type="checkbox" name="cuisine" value="greek"> Greek</div>
+                            <div><input type="checkbox" name="cuisine" value="indian"> Indian</div>
+                            <div><input type="checkbox" name="cuisine" value="irish"> Irish</div>
+                            <div><input type="checkbox" name="cuisine" value="italian"> Italian</div>
+                            <div><input type="checkbox" name="cuisine" value="japanese"> Japanese</div>
+                            <div><input type="checkbox" name="cuisine" value="jewish"> Jewish</div>
+                            <div><input type="checkbox" name="cuisine" value="korean"> Korean</div>
+                            <div><input type="checkbox" name="cuisine" value="latin american"> Latin American</div>
+                            <div><input type="checkbox" name="cuisine" value="mediterranean"> Mediterranean</div>
+                            <div><input type="checkbox" name="cuisine" value="mexican"> Mexican</div>
+                            <div><input type="checkbox" name="cuisine" value="middle eastern"> Middle Eastern</div>
+                            <div><input type="checkbox" name="cuisine" value="nordic"> Nordic</div>
+                            <div><input type="checkbox" name="cuisine" value="southern"> Southern</div>
+                            <div><input type="checkbox" name="cuisine" value="spanish"> Spanish</div>
+                            <div><input type="checkbox" name="cuisine" value="thai"> Thai</div>
+                            <div><input type="checkbox" name="cuisine" value="vietnamese"> Vietnamese</div>
+                        </div>
+                    </div>
+
+                    <!-- Intolerances -->
+                    <div>
+                        <h2 class="text-lg font-semibold text-teal-700 mb-2">Intolerances</h2>
+                        <div class="flex flex-wrap gap-4">
+                            <div><input type="checkbox" name="intolerances" value="dairy"> Dairy</div>
+                            <div><input type="checkbox" name="intolerances" value="egg"> Egg</div>
+                            <div><input type="checkbox" name="intolerances" value="gluten"> Gluten</div>
+                            <div><input type="checkbox" name="intolerances" value="grain"> Grain</div>
+                            <div><input type="checkbox" name="intolerances" value="peanut"> Peanut</div>
+                            <div><input type="checkbox" name="intolerances" value="seafood"> Seafood</div>
+                            <div><input type="checkbox" name="intolerances" value="sesame"> Sesame</div>
+                            <div><input type="checkbox" name="intolerances" value="shellfish"> Shellfish</div>
+                            <div><input type="checkbox" name="intolerances" value="soy"> Soy</div>
+                            <div><input type="checkbox" name="intolerances" value="sulfite"> Sulfite</div>
+                            <div><input type="checkbox" name="intolerances" value="tree nut"> Tree Nut</div>
+                            <div><input type="checkbox" name="intolerances" value="wheat"> Wheat</div>
+                        </div>
+                    </div>
+
+                    <!-- Meal Type -->
+                    <div>
+                        <h2 class="text-lg font-semibold text-teal-700 mb-2">Meal Type</h2>
+                        <div class="flex flex-wrap gap-4">
+                            <div><input type="checkbox" name="type" value="main course"> Main Course</div>
+                            <div><input type="checkbox" name="type" value="side dish"> Side Dish</div>
+                            <div><input type="checkbox" name="type" value="dessert"> Dessert</div>
+                            <div><input type="checkbox" name="type" value="appetizer"> Appetizer</div>
+                            <div><input type="checkbox" name="type" value="salad"> Salad</div>
+                            <div><input type="checkbox" name="type" value="bread"> Bread</div>
+                            <div><input type="checkbox" name="type" value="breakfast"> Breakfast</div>
+                            <div><input type="checkbox" name="type" value="soup"> Soup</div>
+                            <div><input type="checkbox" name="type" value="beverage"> Beverage</div>
+                            <div><input type="checkbox" name="type" value="sauce"> Sauce</div>
+                            <div><input type="checkbox" name="type" value="marinade"> Marinade</div>
+                            <div><input type="checkbox" name="type" value="fingerfood"> Fingerfood</div>
+                            <div><input type="checkbox" name="type" value="snack"> Snack</div>
+                            <div><input type="checkbox" name="type" value="drink"> Drink</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 
         <div id="recipe-container">
 
