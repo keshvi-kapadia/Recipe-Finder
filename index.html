@@ -10,21 +10,30 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body onload="generateRandomDishes()">
+<!-- <body onload="generateRandomDishes()"> -->
+  <body>
     <h1 class="text-center font-mono bg-teal-600 text-white p-4 text-xl">
         Recipe Finder
     </h1>
     <div class="bg-teal-100 min-h-screen justify-center">
-        <div id="recipe-search-bar">
-            <form onsubmit="getRecipe()">
-                <input type="text" placeholder="Search for recipes..." id="search" onkeypress="checkEnter(event)"
-                    class="tracking-wider text-sm font-sans h-8 text-teal-800 m-4 rounded-xl border-2 border-teal-500 w-3/6 pl-2 md:pl-4 lg:pl-6 focus:outline-none focus:border-teal-700 focus:ring-4 focus:ring-teal-300"
-                    required>
 
-                <input type="submit" value="Get Recipes" style="min-width: fit-content;"
-                    class="bg-blue-800 w-1/6 hover:bg-blue-900 text-white rounded p-1 items-center justify-center">
-            </form>
-        </div>
+        <div id="recipe-search-bar" class="flex flex-wrap items-center justify-center gap-4 p-4">
+    <form onsubmit="getRecipe()" class="flex flex-wrap items-center gap-4 w-full justify-center">
+        <!-- Search Input -->
+        <input type="text" placeholder="Search for recipes..." id="search" onkeypress="checkEnter(event)"
+            class="tracking-wider text-sm font-sans h-10 text-teal-800 rounded-3xl border-2 border-teal-500 w-full sm:w-1/2 pl-4
+                   focus:outline-none focus:border-teal-700 focus:ring-4 focus:ring-teal-300" required>
+
+        <!-- Filters Button -->
+        <button type="button" class="flex items-center border-2 border-black rounded-lg px-3 py-1 text-sm hover:bg-gray-100 transition">
+            <img src="filter.png" class="h-4 mr-2"> Filters
+        </button>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Get Recipes"
+            class="bg-blue-800 hover:bg-blue-900 text-white rounded px-4 py-2 text-sm transition w-fit">
+    </form>
+</div>
 
         <div id="recipe-container">
 

@@ -1,6 +1,6 @@
     // https://api.spoonacular.com/recipes/716300/information?apiKey=c8b68c986a374d3682488cd4cca7873c
-    let API_KEY="64b52d63e80c47cd802f6dca60c18028"
-    // let API_KEY="c8b68c986a374d3682488cd4cca7873c"
+    // let API_KEY="64b52d63e80c47cd802f6dca60c18028"
+    let API_KEY="c8b68c986a374d3682488cd4cca7873c"
 
     function checkEnter(event)
     {
