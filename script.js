@@ -39,6 +39,13 @@
             
             return;
         }
+
+        generateDishes(dishes)
+    }
+
+    async function generateDishes(dishes)
+    {
+        let container=document.getElementById("recipe-container");
         container.innerHTML="";
         for(let i=0;i<dishes.length;i++)  //dishes.length
         {
