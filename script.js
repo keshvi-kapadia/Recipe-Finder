@@ -1,6 +1,7 @@
     // https://api.spoonacular.com/recipes/716300/information?apiKey=c8b68c986a374d3682488cd4cca7873c
     // let API_KEY="64b52d63e80c47cd802f6dca60c18028"
     let API_KEY="c8b68c986a374d3682488cd4cca7873c"
+    let url=""
 
     function checkEnter(event)
     {
@@ -35,9 +36,9 @@
 
         container.innerHTML="<h5 style='text-align:center;'>Searching for Recipes...</h5>"
         
-        let URL="https://api.spoonacular.com/recipes/complexSearch?query="+dish_val+"&apiKey="+API_KEY
-        
-        let response=await fetch(URL);
+        url="https://api.spoonacular.com/recipes/complexSearch?query="+dish_val+"&apiKey="+API_KEY
+        applyFilter()
+        let response=await fetch(url);
         let data=await response.json();
         let dishes=data.results;
         console.log(dishes);
@@ -157,4 +158,70 @@ function showFilter()
     if(filter.classList.contains("hidden"))
         filter.classList.remove("hidden")
     else filter.classList.add("hidden")
+}
+
+async function applyFilter()
+{
+    let diet_box=document.getElementsByName("diet")
+    let diet=new Array()
+    for(let i=0;i<diet_box.length;i++)
+    {
+        if(diet_box[i].checked)
+        {
+            diet.push(diet_box[i].value)
+        }
+    }
+    
+    let diet_val=diet.join(",")
+    if(diet_val)
+        url+="&diet="+diet_val
+
+    let cuisine_box=document.getElementsByName("cuisine")
+    let cuisine=new Array()
+    for(let i=0;i<cuisine_box.length;i++)
+    {
+        if(cuisine_box[i].checked)
+        {
+            cuisine.push(cuisine_box[i].value)
+        }
+    }
+    
+    let cuisine_val=cuisine.join(",")
+    // console.log(cuisine_val)
+
+    if(cuisine_val)
+        url+="&cuisine="+cuisine_val
+
+    let int_box=document.getElementsByName("intolerances")
+    let int=new Array()
+    for(let i=0;i<int_box.length;i++)
+    {
+        if(int_box[i].checked)
+        {
+            int.push(int_box[i].value)
+        }
+    }
+    
+    let int_val=int.join(",")
+    // console.log(int_val)
+    if(int_val)
+        url+="&intolerances="+int_val
+
+    let meal_box=document.getElementsByName("type")
+    let meal=new Array()
+    for(let i=0;i<meal_box.length;i++)
+    {
+        if(meal_box[i].checked)
+        {
+            meal.push(meal_box[i].value)
+        }
+    }
+    
+    let meal_val=meal.join(",")
+    //  console.log(meal_val)
+    if(meal_val)
+        url+="&type="+meal_val
+
+    console.log(url)
+    showFilter()
 }

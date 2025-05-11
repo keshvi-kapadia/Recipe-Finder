@@ -26,7 +26,7 @@
 
                 <!-- Filters Button -->
                 <button type="button"
-                    class="flex items-center border-2 border-black rounded-lg px-3 py-1 text-sm hover:bg-gray-100 transition"
+                    class="focus:outline-none flex items-center border-2 border-black rounded-lg px-3 py-1 text-sm hover:bg-blue-100 transition"
                     onclick="showFilter()">
                     <img src="filter.png" class="h-4 mr-2"> Filters
                 </button>
@@ -129,6 +129,7 @@
                             <div><input type="checkbox" name="type" value="drink"> Drink</div>
                         </div>
                     </div>
+                    <button onclick="getRecipe()" type="button" class="display-flex text-white rounded-lg p-2 items-center bg-teal-600 transition border border-teal-900 font-semibold hover:bg-teal-400 hover:text-black focus:outline-none">Apply Now</button>
                 </div>
             </form>
         </div>
